@@ -4,7 +4,7 @@ import 'swiper/css';
 import 'swiper/css/scrollbar';
 import "./Home.css";
 import 'swiper/css/pagination';
-import { Pagination } from 'swiper/modules';
+import {Autoplay, Pagination } from 'swiper/modules';
 import cardata from './Car_data/Data';
 
 export default function Home() {
@@ -13,8 +13,13 @@ export default function Home() {
             <div className='swiper'>
                 <Swiper
                     pagination={true}
-                    modules={[Pagination]}
+                    modules={[Pagination, Autoplay]}
                     className="mySwiper"
+                    autoplay={{
+                        delay: 2500,
+                        disableOnInteraction: false,
+                      }}
+                    loop={100}
                 >
                     {
                         cardata.map((val)=>(
